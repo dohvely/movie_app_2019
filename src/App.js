@@ -21,28 +21,34 @@ class App extends React.Component {
     } = await axios.get("https://yts.mx/api/v2/list_movies.json?sort_by=rating")
     // console.log(movies)
     
-    // 아래코드 = this.setState({movies: movies})
-    // this.setState({movies})
+    // 같은 코드 : this.setState({movies}) = this.setState({movies: movies})
     this.setState({movies, isLoading: false})
   } 
   componentDidMount() {
-    setTimeout(() => {
+    // setTimeout(() => {
       // this.setState({isLoading: false})
       this.getMovies();
-    }, 6000)
+    // }, 6000)
   }
   render() {
     const {isLoading, movies} = this.state
-    return <section class="container">
+    return <section className="container">
       {isLoading
       ?
-      <div class="loader">
-        <span class="loader__text">Loading..</span>
+      <div className="loader">
+        <span className="loader__text">Loading..</span>
       </div>
       :
-      <div class="movies">
+      <div className="movies">
         {movies.map(movie => {
-          return <Movie key={movie.id} id={movie.id} year={movie.year} title={movie.title} summary={movie.summary} poster={movie.medium_cover_image} />
+          return <Movie key={movie.id}
+                  id={movie.id}
+                  year={movie.year}
+                  title={movie.title}
+                  summary={movie.summary}
+                  poster={movie.medium_cover_image}
+                  genres={movie.genres}
+                  />
         })}  
       </div>
       }
