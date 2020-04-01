@@ -3,6 +3,7 @@ import axios from 'axios';
 import Movie from './Movie'
 import './App.css'
 
+// react hook 을 사용한다면 state를 사용하기 위해 class component를 사용하지 않아도 된다.
 class App extends React.Component {
   state = {
     isLoading: true,
