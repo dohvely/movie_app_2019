@@ -5,6 +5,8 @@ import './Home.css'
 
 // react hook 을 사용한다면 state를 사용하기 위해 class component를 사용하지 않아도 된다.
 class Home extends React.Component {
+  // Tip: router를 통해 다른 컴포넌트를 열었다가 다시 Home 컴포넌트를 열었을때, state가 비워졌기 떄문에 isLoading이 true로 초기화된다.
+  // Tip: 이를 해결하기 위한 방법으로 redux.js 가 있다. state를 저장해두는 것이다.
   state = {
     isLoading: true,
     movies: []
